@@ -1,0 +1,47 @@
+#!/usr/bin/env python3.6
+import logging
+import os
+import sys
+import traceback
+
+import papermill as pm
+
+from pathlib import Path
+
+
+logger = logging.getLogger(__name__)
+error_file = "/opt/ml/output/failure"
+output_directory = "/opt/ml/output"
+model_directory = "/opt/ml/model"
+code_directory = "/opt/program/src"
+
+
+def main():
+    parameters = {}
+
+    try:
+        logger.debug("Start execution")
+        execute("notebook.ipynb", parameters)
+        logger.debug("End execution successfully")
+    except Exception:
+        os.makedirs(output_directory)
+
+        with open(error_file, "w") as f:
+            error = traceback.format_exc()
+            logger.exception("Error during execution:")
+            f.write(error)
+
+        sys.exit(255)
+
+
+def execute(notebook, parameters={}):
+    Path(model_directory).mkdir(parents=True, exist_ok=True)
+    input_path = os.path.join(code_directory, notebook)
+    output_path = os.path.join(model_directory, notebook)
+    pm.execute_notebook(
+        input_path, output_path, parameters=parameters, cwd=code_directory
+    )
+
+
+if __name__ == "__main__":
+    main()

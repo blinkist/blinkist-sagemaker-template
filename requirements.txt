@@ -1,0 +1,14 @@
+# Container dependencies
+boto3
+fsspec
+ipykernel
+ipywidgets
+papermill
+s3fs
+
+# Project dependencies
+numpy
+scikit-learn
+scipy
+pandas
+pyarrow
