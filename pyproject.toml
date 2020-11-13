@@ -21,7 +21,6 @@ flake8 = "^3.8.4"
 nbqa = "^0.4.1"
 isort = "^5.6.4"
 
-
 [tool.poetry.dev-dependencies]
 
 [build-system]

@@ -12,7 +12,7 @@ function install {
 	fi
 }
 
-install poetry
+install "poetry>=1.1.4"
 
 echo "${bold}Install project dependencies${normal}"
 poetry install
