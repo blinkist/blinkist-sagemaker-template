@@ -1,3 +1,9 @@
+install: ## Initial project setup, create virtualenv, Jupyter kernel, and install dependencies
+	@printf "\nInitial project setup\n"
+	@chmod +x ./scripts/install.sh
+	@./scripts/install.sh
+
+
 deploy: format lint ## Deploy project as docker container to ECR, usage: make deploy tag=docker-tag
 	@printf "\nBuild and push docker container to ECR\n"
 	@chmod +x ./scripts/build_and_push.sh

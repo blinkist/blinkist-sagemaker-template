@@ -24,7 +24,6 @@ fi
 # Get the region defined in the current configuration (default to us-west-2 if none defined)
 region=$(aws configure get region)
 region=${region:-us-east-1}
-
 fullname="${account}.dkr.ecr.${region}.amazonaws.com/${image}:latest"
 
 # If the repository doesn't exist in ECR, create it.
@@ -40,8 +39,6 @@ $(aws ecr get-login --region ${region} --no-include-email)
 
 # Build the docker image locally with the image name and then push it to ECR
 # with the full name.
-
 docker build  -t ${image} .
 docker tag ${image} ${fullname}
-
 docker push ${fullname}

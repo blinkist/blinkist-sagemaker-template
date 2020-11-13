@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.7
 
 ### Setup Python ###
 ENV PYTHONUNBUFFERED=TRUE
@@ -6,15 +6,18 @@ ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
 
 ### Install Dependencies ###
-COPY requirements.txt /opt/program/requirements.txt
-RUN pip install -r /opt/program/requirements.txt
+RUN pip install "poetry>=1.1.4"
+COPY poetry.lock pyproject.toml /opt/program/
 
-### Copy Code ###
-COPY . /opt/program
 WORKDIR /opt/program
+RUN poetry export -f requirements.txt -o requirements.txt
+RUN python -m pip install -r /opt/program/requirements.txt
+
+### Copy project code ###
+COPY . .
 
 ### Create Jupyter kernel ###
-RUN python3 -m ipykernel install --user --name conda_python3
+RUN python -m ipykernel install --user --name blinkist
 
 ### Executable Scripts ###
 RUN ["chmod", "+x", "./train"]
