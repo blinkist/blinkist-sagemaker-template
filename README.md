@@ -1,6 +1,6 @@
-# <Project Name>
+# \<Project Name\>
 ## About
-<Description>
+\<Description\>
 
 ## Commands
 ### Help
