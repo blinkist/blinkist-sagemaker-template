@@ -25,5 +25,5 @@
 * `make format`: Format code using [Black](https://github.com/psf/black) and re-order imports using [isort](https://pycqa.github.io/isort/). Formatting is applied to Python files and notebooks inside `src/`
 
 ### Linter
-* `make format`: Check code using [Flake8](https://github.com/PyCQA/flake8) to catch logical and stylistic anti-patterns. Linting is applied to Python files and notebooks inside `src/`
+* `make lint`: Check code using [Flake8](https://github.com/PyCQA/flake8) to catch logical and stylistic anti-patterns. Linting is applied to Python files and notebooks inside `src/`
 
