@@ -21,3 +21,6 @@
 
 ### Linter
 * `make lint`: Check code using [Flake8](https://github.com/PyCQA/flake8) to catch logical and stylistic anti-patterns. Linting is applied to Python files and notebooks inside `src/`
+
+### Add dependencies
+This project uses [Poetry](https://github.com/python-poetry/poetry/) to create a virtualenv and to manage dependencies. The initial project setup install poetry as a command line tool. Adding dependencies is simply done by using `poetry add tensorflow`, which will add the dependency to the `pyproject.toml` file and all transient dependencies to `poetry.lock` to freeze versions.

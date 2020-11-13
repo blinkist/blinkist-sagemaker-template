@@ -4,7 +4,13 @@ install: ## Initial project setup, create virtualenv, Jupyter kernel, and instal
 	@./scripts/install.sh
 
 
-deploy: format lint ## Deploy project as docker container to ECR, usage: make deploy tag=docker-tag
+deploy: format lint ## Format, lint and deploy project to ECR, usage: make deploy tag=docker-tag
+	@printf "\nBuild and push docker container to ECR\n"
+	@chmod +x ./scripts/build_and_push.sh
+	@./scripts/build_and_push.sh $(tag)
+
+
+deploy-only: ## Only build docker container and push to ECR, usage: make deploy-only tag=docker-tag
 	@printf "\nBuild and push docker container to ECR\n"
 	@chmod +x ./scripts/build_and_push.sh
 	@./scripts/build_and_push.sh $(tag)

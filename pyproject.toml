@@ -5,7 +5,7 @@ description = ""
 authors = ["Philipp Hager <philipp.hager@blinkist.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6.11"
 black = "^20.8b1"
 papermill = "^2.2.1"
 boto3 = "^1.16.17"

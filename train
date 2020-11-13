@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3.6
 import logging
 import os
 import sys
@@ -39,7 +39,7 @@ def execute(notebook, parameters={}):
     input_path = os.path.join(code_directory, notebook)
     output_path = os.path.join(model_directory, notebook)
     pm.execute_notebook(
-        input_path, output_path, parameters=parameters
+        input_path, output_path, parameters=parameters, cwd=code_directory
     )
 
 
