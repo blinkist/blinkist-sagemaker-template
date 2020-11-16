@@ -9,7 +9,7 @@ ENV PATH="/opt/program:${PATH}"
 WORKDIR /opt/program
 COPY poetry.lock pyproject.toml ./
 RUN pip install "poetry>=1.1.4"
-RUN poetry export -f requirements.txt -o requirements.txt
+RUN poetry export -f requirements.txt -o requirements.txt --without-hashes
 RUN python -m pip install -r /opt/program/requirements.txt
 
 ### Copy project code ###
