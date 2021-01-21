@@ -12,6 +12,11 @@ function install {
 	fi
 }
 
+
+echo "${bold}Upgrade GCC on Sagemaker${normal}"
+sudo yum install gcc64 -y;
+sudo yum install gcc72 gcc72-c++ -y;
+
 install "poetry>=1.1.4"
 
 echo "${bold}Install project dependencies${normal}"
