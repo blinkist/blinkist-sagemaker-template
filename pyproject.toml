@@ -23,7 +23,7 @@ nbqa = "^0.4.1"
 isort = "^5.6.4"
 altair = "^4.1.0"
 awscli = "^1.18.178"
-dask = "2021.03"
+dask = "2021.3.0"
 
 [tool.poetry.dev-dependencies]
 
